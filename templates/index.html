@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HyperFruit AI: A Multi-Fruit Hyperspectral Framework for Non-Destructive Quality Assessment and Ripeness Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+<body>
+
+  <!-- Animated background -->
+  <canvas id="bgCanvas"></canvas>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+  <div class="blob blob-4"></div>
+
+  <div class="page">
+
+    <!-- ══ NAV ══ -->
+    <nav>
+      <div class="nav-brand">
+        <div class="nav-logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div>
+          <div class="nav-name">HyperFruit AI<sup>™</sup></div>
+          <div class="nav-tagline">"Intelligent Spectral Quality Engine"</div>
+        </div>
+      </div>
+      <div class="nav-badge">Research Demo &middot; v2.0</div>
+    </nav>
+
+    <!-- ══ HERO ══ -->
+    <section class="hero">
+      <div class="hero-chips">
+        <div class="chip chip-green"><span class="chip-pulse"></span>Real-time AI Analysis</div>
+        <div class="chip chip-blue"><span class="chip-pulse"></span>Non-Destructive Detection</div>
+        <div class="chip chip-purple">400–1000 nm Spectral Range</div>
+      </div>
+
+      <div class="hero-title">
+        <span class="t-project">
+          HyperFruit AI: A Multi-Fruit Hyperspectral Framework for<br/>
+          Non-Destructive Quality Assessment and Ripeness Analysis
+        </span>
+        <span class="t-brand">
+          <span class="t-brand-plain">HyperFruit </span><span class="t-brand-ai">AI</span><span class="t-tm">™</span>
+        </span>
+      </div>
+
+      <div class="hero-tagline-box">
+        <div class="hero-tagline-main">"Intelligent Spectral Quality Engine" — precision agriculture powered by hyperspectral imaging and deep learning.</div>
+        <div class="hero-tagline-sub">Precision Agriculture &middot; Non-Destructive Testing &middot; AI Classification</div>
+      </div>
+
+      <div class="hero-see-beyond">See Beyond the Surface</div>
+
+      <div class="fruit-strip">
+        <div class="fs-item"><span class="fs-emoji">🫐</span><div class="fs-label">Blueberry</div></div>
+        <div class="fs-item"><span class="fs-emoji">🍊</span><div class="fs-label">Kaki</div></div>
+        <div class="fs-item"><span class="fs-emoji">🥑</span><div class="fs-label">Avocado</div></div>
+      </div>
+    </section>
+
+    <!-- ══ STATS ROW ══ -->
+    <div class="stats-row">
+      <div class="stat-cell"><div class="stat-num">200+</div><div class="stat-label">Spectral Bands</div></div>
+      <div class="stat-cell"><div class="stat-num">3</div><div class="stat-label">Fruit Species</div></div>
+      <div class="stat-cell"><div class="stat-num">600nm</div><div class="stat-label">Spectral Range</div></div>
+      <div class="stat-cell"><div class="stat-num">CNN</div><div class="stat-label">AI Architecture</div></div>
+    </div>
+
+    <!-- ══ MAIN CARD ══ -->
+    <div class="main-card">
+
+      <!-- Step 1 -->
+      <div class="sec-label">
+        <div class="sec-label-bar"></div>
+        <span class="sec-label-num">01</span>
+        Select Fruit Species
+      </div>
+      <div class="fruit-grid" id="fruitGrid">
+
+        <div class="fruit-card" data-fruit="blueberry">
+          <div class="fruit-check">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2,6 5,9 10,3"/>
+            </svg>
+          </div>
+          <div class="fc-glow"></div>
+          <span class="fruit-emoji">🫐</span>
+          <div class="fruit-name">Blueberry</div>
+          <div class="fruit-classes">Good &middot; Bad</div>
+        </div>
+
+        <div class="fruit-card" data-fruit="kaki">
+          <div class="fruit-check">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2,6 5,9 10,3"/>
+            </svg>
+          </div>
+          <div class="fc-glow"></div>
+          <span class="fruit-emoji">🍊</span>
+          <div class="fruit-name">Kaki</div>
+          <div class="fruit-classes">Perfect &middot; Overripe</div>
+        </div>
+
+        <div class="fruit-card" data-fruit="avocado">
+          <div class="fruit-check">
+            <svg viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2,6 5,9 10,3"/>
+            </svg>
+          </div>
+          <div class="fc-glow"></div>
+          <span class="fruit-emoji">🥑</span>
+          <div class="fruit-name">Avocado</div>
+          <div class="fruit-classes">Unripe &middot; Perfect &middot; Overripe</div>
+        </div>
+
+      </div><!-- /fruit-grid -->
+
+      <div class="sec-divider"></div>
+
+      <!-- Step 2 -->
+      <div class="sec-label">
+        <div class="sec-label-bar"></div>
+        <span class="sec-label-num">02</span>
+        Upload Spectral Data File
+      </div>
+      <div class="upload-zone" id="uploadZone">
+        <input type="file" id="fileInput" accept=".hdr"/>
+        <div class="upload-icon-box">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+            <line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+        </div>
+        <div class="upload-title">Drop your .hdr file or <span>browse</span></div>
+        <div class="upload-desc">Hyperspectral Image File &middot; ENVI Header format</div>
+        <div class="upload-pill">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          .hdr files only
+        </div>
+      </div>
+      <div class="file-pill" id="filePill">
+        <div class="fp-icon">📄</div>
+        <span class="fp-name" id="filePillName"></span>
+        <span class="fp-check">✓</span>
+      </div>
+
+      <!-- CTA Button -->
+      <button class="btn" id="predictBtn">
+        <span class="btn-shine"></span>
+        <span class="btn-inner">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          Run Spectral Analysis
+        </span>
+        <div class="spinner"></div>
+      </button>
+
+    </div><!-- /main-card -->
+
+    <!-- ══ INFORMATIVE SECTIONS ══ -->
+    <section class="info-section">
+
+      <!-- Why Hyperspectral AI -->
+      <div class="info-section-head">
+        <div class="info-section-title">Why Hyperspectral AI?</div>
+        <div class="info-section-sub">Beyond what the human eye can see</div>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <span class="why-icon">🔍</span>
+          <div class="why-title">Detects Internal Defects</div>
+          <div class="why-desc">Identifies bruising, rot, and structural damage invisible to the naked eye using near-infrared band penetration.</div>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">🧪</span>
+          <div class="why-title">Chemical Property Measurement</div>
+          <div class="why-desc">Measures sugar content (Brix), moisture level, chlorophyll concentration, oil content, and anthocyanin non-invasively.</div>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">🛡️</span>
+          <div class="why-title">Non-Destructive Testing</div>
+          <div class="why-desc">Zero contact, zero damage — fruit integrity is fully preserved while complete spectral data is captured and analyzed.</div>
+        </div>
+        <div class="why-card">
+          <span class="why-icon">🤖</span>
+          <div class="why-title">High-Accuracy AI Classification</div>
+          <div class="why-desc">CNN + ML hybrid model extracts spectral features and classifies quality and ripeness with research-grade accuracy.</div>
+        </div>
+      </div>
+
+      <!-- Technical Insights -->
+      <div class="section-rule"><span>Technical Insights</span></div>
+      <div class="tech-grid">
+        <div class="tech-cell"><div class="tech-val v-blue">400–1000 nm</div><div class="tech-key">Spectral Range</div></div>
+        <div class="tech-cell"><div class="tech-val v-purple">200+</div><div class="tech-key">Bands Used</div></div>
+        <div class="tech-cell"><div class="tech-val v-cyan">CNN / XGB</div><div class="tech-key">AI Models</div></div>
+        <div class="tech-cell"><div class="tech-val v-green">PCA + FE</div><div class="tech-key">Processing Pipeline</div></div>
+      </div>
+
+      <!-- How It Works -->
+      <div class="section-rule"><span>How It Works</span></div>
+      <div class="hiw-grid">
+        <div class="hiw-step">
+          <div class="hiw-step-connector">&#8594;</div>
+          <div class="step-badge">Step 01</div>
+          <div class="hiw-icon-box hiw-icon-box-1">🔬</div>
+          <div class="hiw-title">Hyperspectral Scan</div>
+          <div class="hiw-desc">Camera captures 200+ wavelength bands across 400–1000 nm — far beyond the visible light spectrum.</div>
+        </div>
+        <div class="hiw-step">
+          <div class="hiw-step-connector">&#8594;</div>
+          <div class="step-badge">Step 02</div>
+          <div class="hiw-icon-box hiw-icon-box-2">&#9889;</div>
+          <div class="hiw-title">Feature Extraction</div>
+          <div class="hiw-desc">PCA and spectral indices isolate sugar, anthocyanin, chlorophyll, and oil content chemical signatures.</div>
+        </div>
+        <div class="hiw-step">
+          <div class="step-badge">Step 03</div>
+          <div class="hiw-icon-box hiw-icon-box-3">🧠</div>
+          <div class="hiw-title">AI Prediction</div>
+          <div class="hiw-desc">Deep learning model classifies quality and ripeness with high precision from the extracted spectral features.</div>
+        </div>
+      </div>
+
+      <!-- Use Cases -->
+      <div class="section-rule"><span>Applications &amp; Impact</span></div>
+      <div class="uc-grid">
+        <div class="uc-card"><span class="uc-icon">🏭</span><div class="uc-title">Quality Control</div><div class="uc-desc">Inline sorting at production scale.</div></div>
+        <div class="uc-card"><span class="uc-icon">&#9992;&#65039;</span><div class="uc-title">Export Grading</div><div class="uc-desc">Meet international quality standards.</div></div>
+        <div class="uc-card"><span class="uc-icon">🌾</span><div class="uc-title">Precision Agriculture</div><div class="uc-desc">Real-time crop health monitoring.</div></div>
+        <div class="uc-card"><span class="uc-icon">🔗</span><div class="uc-title">Supply Chain</div><div class="uc-desc">Reduce waste with predictive ripeness.</div></div>
+      </div>
+
+    </section>
+
+    <!-- ══ FOOTER ══ -->
+    <footer>
+      <div class="footer-logo">HyperFruit AI<sup>™</sup></div>
+      <div class="footer-full-title">
+        HyperFruit AI: A Multi-Fruit Hyperspectral Framework for Non-Destructive Quality Assessment and Ripeness Analysis
+      </div>
+      <div class="footer-meta">Final Year Research Project &middot; Hyperspectral Imaging Lab &middot; 2025</div>
+    </footer>
+
+  </div><!-- /page -->
+
+  <!-- ══════════════ RESULT MODAL ══════════════ -->
+  <div class="overlay" id="overlay">
+    <div class="modal" id="modal">
+
+      <div class="modal-glow" id="mGlow"></div>
+      <div class="modal-stripe" id="mStripe"></div>
+
+      <div class="modal-body">
+        <button class="m-close" id="closeBtn" aria-label="Close">&#10005;</button>
+
+        <div class="m-top">
+          <div class="m-icon-ring" id="mIconRing"><span id="mIcon"></span></div>
+          <div class="m-header">
+            <div class="m-badge" id="mBadge"></div>
+            <div class="m-result" id="mResult"></div>
+            <div class="m-fruit-name" id="mFruit"></div>
+          </div>
+        </div>
+
+        <div class="m-insight" id="mInsight">
+          <div class="m-insight-dot"></div>
+          <span class="m-insight-text" id="mInsightText"></span>
+        </div>
+
+        <div class="m-divider"></div>
+
+        <div class="m-row">
+          <div class="m-row-label">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="8" x2="12" y2="12"/>
+              <line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            Spectral Analysis
+          </div>
+          <div class="m-row-body" id="mInfo"></div>
+        </div>
+
+        <div class="m-row">
+          <div class="m-row-label">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M9 11l3 3L22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+            Recommendation
+          </div>
+          <div class="m-rec" id="mRec"></div>
+        </div>
+
+        <div class="m-confidence" id="mConf"></div>
+
+        <button class="m-done" id="closeBtnBottom">Done &mdash; Close Analysis</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
